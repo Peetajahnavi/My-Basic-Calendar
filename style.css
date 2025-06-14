@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f7f6;
+}
+
+.calendar-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin: 0;
+}
+
+.calendar-header button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-header button:hover {
+    background-color: #0056b3;
+}
+
+.calendar-grid-weekdays,
+.calendar-grid-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Creates 7 equal columns */
+    gap: 5px; /* Space between grid items */
+    text-align: center;
+}
+
+.calendar-grid-weekdays div {
+    font-weight: bold;
+    color: #555;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.calendar-grid-dates div {
+    padding: 10px 5px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 50px; /* Give some space for events */
+    font-size: 1.1em;
+    position: relative; /* For event positioning */
+}
+
+.calendar-grid-dates div.empty {
+    background-color: #f8f8f8;
+    color: #ccc;
+}
+
+.calendar-grid-dates div.current-month {
+    background-color: #fff;
+    color: #333;
+}
+
+.calendar-grid-dates div.today {
+    background-color: #e0f2f7; /* Light blue for today */
+    border: 2px solid #007bff; /* Blue border for today */
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Event styling */
+.event {
+    font-size: 11px; /* Smaller text for events */
+    padding: 1px 4px;
+    border-radius: 1px;
+    margin-top: 3px; /* Space from date number */
+    width: 100px; /* Adjust width */
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ... for long text */
+    cursor: help; /* Indicates more info on hover */
+    z-index: 1; /* Make sure events are on top of day cell */
+}
+
+/* Example event colors (based on JSON colors) */
+.event[data-color="#f6be23"] { background-color: #f6be23; color: #333; }
+.event[data-color="#f6501e"] { background-color: #f6501e; color: white; }
+.event[data-color="#60a5fa"] { background-color: #60a5fa; color: white; }
+.event[data-color="#34d399"] { background-color: #34d399; color: white; }
+.event[data-color="#a78bfa"] { background-color: #a78bfa; color: white; }
